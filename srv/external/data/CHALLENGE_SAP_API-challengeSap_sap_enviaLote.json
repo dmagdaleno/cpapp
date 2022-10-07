@@ -1,0 +1,57 @@
+{
+  "status": 1,
+  "lotes": [
+    {
+      "noLote": 569,
+      "noPagamento": 0,
+      "valorPagamento": "44.75",
+      "agencia": 9865,
+      "conta": 45646,
+      "digito": 6,
+      "CNPJ": "45130112000103",
+      "eParcelado": 1,
+      "noParcela": 2,
+      "qtdParcela": 2,
+      "valorParcela": "22.37"
+    },
+    {
+      "noLote": 569,
+      "noPagamento": 1,
+      "valorPagamento": "795.74",
+      "agencia": 1,
+      "conta": 6859,
+      "digito": 0,
+      "CNPJ": "02501305000102",
+      "eParcelado": 1,
+      "noParcela": 4,
+      "qtdParcela": 7,
+      "valorParcela": "113.68"
+    },
+    {
+      "noLote": 569,
+      "noPagamento": 2,
+      "valorPagamento": "152.44",
+      "agencia": 3568,
+      "conta": 6668,
+      "digito": 0,
+      "CNPJ": "54004981000174",
+      "eParcelado": 0,
+      "noParcela": 0,
+      "qtdParcela": 0,
+      "valorParcela": "152.44"
+    },
+    {
+      "noLote": 569,
+      "noPagamento": 3,
+      "valorPagamento": "574.77",
+      "agencia": 3232,
+      "conta": 1452,
+      "digito": 1,
+      "CNPJ": "49344129000106",
+      "eParcelado": 0,
+      "noParcela": 0,
+      "qtdParcela": 0,
+      "valorParcela": "574.77"
+    }
+  ]
+}

@@ -1,0 +1,268 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Challenge SAP API",
+    "description": "Challenge SAP API",
+    "termsOfService": "https://api.openconnectors.trial.us10.ext.hana.ondemand.com/terms",
+    "contact": {
+      "name": "Challenge SAP API",
+      "url": "https://api.openconnectors.trial.us10.ext.hana.ondemand.com/api",
+      "email": "some_email@gmail.com"
+    },
+    "license": {
+      "name": "CC Attribution-ShareAlike 4.0 (CC BY-SA 4.0)",
+      "url": "https://api.openconnectors.trial.us10.ext.hana.ondemand.com/price"
+    },
+    "version": "2.5.2"
+  },
+  "externalDocs": {
+    "description": "API Documentation",
+    "url": "https://api.openconnectors.trial.us10.ext.hana.ondemand.com/api"
+  },
+  "servers": [
+    {
+      "url": "https://api.openconnectors.trial.us10.ext.hana.ondemand.com/elements/api-v2/"
+    }
+  ],
+  "security": [
+    {
+      "app_id": []
+    }
+  ],
+  "tags": [
+    {
+      "name": "Fiap Payment API",
+      "description": "Fiap Payment API"
+    }
+  ],
+  "paths": {
+    "/challengeSap/sap/enviaLote": {
+      "get": {
+        "tags": [
+          "Challenge SAP Pagamentos"
+        ],
+        "summary": "Lista de lotes de pagamento",
+        "description": "Lista de lotes de pagamento.",
+        "operationId": "EnviaLote",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EnviaLoteRes"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/challengeSap/sap/confirmaPagto": {
+      "post": {
+        "tags": [
+          "Challenge SAP Pagamentos"
+        ],
+        "summary": "Confirma lote de pagamento",
+        "description": "Confirma lote de pagamento.",
+        "operationId": "ConfirmaPagto",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "ConfirmaPagtoReq": {
+              "schema": {
+                "$ref": "#/components/schemas/ConfirmaPagtoReq"
+              },
+              "examples": {
+                "ConfirmaPagtoRes": {
+                  "value": {
+                    "lotes": [
+                      {
+                        "noLote": 442,
+                        "noPagamento": 1,
+                        "valorPagamento": 790.00,
+                        "status": 1
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ConfirmaPagtoRes"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "EnviaLoteRes": {
+        "title": "Successful response",
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "integer"
+          },
+          "lotes": {
+            "type": "array",
+            "description": "Lotes de pagamento",
+            "items": {
+              "$ref": "#/components/schemas/EnviaLoteResLote"
+            }
+          }
+        }
+      },
+      "EnviaLoteResLote": {
+        "title": "Lote",
+        "type": "object",
+        "properties": {
+          "noLote": {
+            "x-samplevalue": 123,
+            "format": "int32",
+            "type": "integer"
+          },
+          "noParcela": {
+            "x-samplevalue": 0,
+            "format": "int32",
+            "type": "integer"
+          },
+          "valorParcela": {
+            "x-samplevalue": "358.95",
+            "type": "string"
+          },
+          "qtdParcela": {
+            "x-samplevalue": 0,
+            "format": "int32",
+            "type": "integer"
+          },
+          "conta": {
+            "x-samplevalue": 1,
+            "format": "int32",
+            "type": "integer"
+          },
+          "eParcelado": {
+            "x-samplevalue": 0,
+            "format": "int32",
+            "type": "integer"
+          },
+          "CNPJ": {
+            "x-samplevalue": "29480870000197",
+            "type": "string"
+          },
+          "noPagamento": {
+            "x-samplevalue": 0,
+            "format": "int32",
+            "type": "integer"
+          },
+          "agencia": {
+            "x-samplevalue": 45646,
+            "format": "int32",
+            "type": "integer"
+          },
+          "digito": {
+            "x-samplevalue": 2,
+            "format": "int32",
+            "type": "integer"
+          },
+          "valorPagamento": {
+            "x-samplevalue": "358.95",
+            "type": "string"
+          }
+        }
+      },
+      "ConfirmaPagtoReq": {
+        "title": "Confirma Pagto Request",
+        "type": "object",
+        "properties": {
+          "lotes": {
+            "type": "array",
+            "description": "Lotes de pagamento",
+            "items": {
+              "$ref": "#/components/schemas/ConfirmaPagtoReqLote"
+            }
+          }
+        }
+      },
+      "ConfirmaPagtoRes": {
+        "title": "Successful response",
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "integer"
+          },
+          "lotes": {
+            "type": "array",
+            "description": "Lotes de pagamento",
+            "items": {
+              "$ref": "#/components/schemas/ConfirmaPagtoResLote"
+            }
+          }
+        }
+      },
+      "ConfirmaPagtoReqLote": {
+        "title": "Lote",
+        "type": "object",
+        "properties": {
+          "noLote": {
+            "x-samplevalue": 123,
+            "format": "int32",
+            "type": "integer"
+          },
+          "noPagamento": {
+            "x-samplevalue": 0,
+            "format": "int32",
+            "type": "integer"
+          },
+          "valorPagamento": {
+            "x-samplevalue": "358.95",
+            "type": "string"
+          },
+          "status": {
+            "x-samplevalue": 0,
+            "type": "integer"
+          }
+        }
+      },
+      "ConfirmaPagtoResLote": {
+        "title": "Lote",
+        "type": "object",
+        "properties": {
+          "noLote": {
+            "x-samplevalue": 123,
+            "format": "int32",
+            "type": "integer"
+          },
+          "noPagamento": {
+            "x-samplevalue": 0,
+            "format": "int32",
+            "type": "integer"
+          },
+          "status": {
+            "x-samplevalue": 0,
+            "type": "integer"
+          }
+        }
+      }
+    },
+    "securitySchemes": {
+      "app_id": {
+        "type": "apiKey",
+        "description": "API key to authorize requests. If you don't have an OpenWeatherMap API key, use `fd4698c940c6d1da602a70ac34f0b147`.",
+        "name": "appid",
+        "in": "query"
+      }
+    }
+  }
+}

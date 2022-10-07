@@ -1,0 +1,151 @@
+{
+  "definitions": {
+    "Challenge.SAP.API": {
+      "kind": "service",
+      "@Capabilities.BatchSupported": false,
+      "@Capabilities.KeyAsSegmentSupported": true,
+      "@Core.Description": "Challenge SAP API",
+      "@Core.SchemaVersion": "2.5.2",
+      "@Core.LongDescription": "Challenge SAP API"
+    },
+    "Challenge.SAP.API.challengeSap_sap_enviaLote": {
+      "kind": "function",
+      "params": {},
+      "@Common.Label": "Challenge SAP Pagamentos",
+      "@Core.Description": "Lista de lotes de pagamento",
+      "@Core.LongDescription": "Lista de lotes de pagamento.",
+      "@openapi.path": "/challengeSap/sap/enviaLote",
+      "returns": {
+        "type": "Challenge.SAP.API_types.EnviaLoteRes"
+      }
+    },
+    "Challenge.SAP.API.challengeSap_sap_confirmaPagto_post": {
+      "kind": "action",
+      "params": {},
+      "@Common.Label": "Challenge SAP Pagamentos",
+      "@Core.Description": "Confirma lote de pagamento",
+      "@Core.LongDescription": "Confirma lote de pagamento.",
+      "@openapi.path": "/challengeSap/sap/confirmaPagto",
+      "returns": {
+        "type": "Challenge.SAP.API_types.ConfirmaPagtoRes"
+      }
+    },
+    "Challenge.SAP.API_types.EnviaLoteRes": {
+      "@title": "Successful response",
+      "elements": {
+        "status": {
+          "type": "cds.Integer"
+        },
+        "lotes": {
+          "@description": "Lotes de pagamento",
+          "items": {
+            "type": "Challenge.SAP.API_types.EnviaLoteResLote"
+          }
+        }
+      },
+      "kind": "type"
+    },
+    "Challenge.SAP.API_types.EnviaLoteResLote": {
+      "@title": "Lote",
+      "elements": {
+        "noLote": {
+          "type": "cds.Integer"
+        },
+        "noParcela": {
+          "type": "cds.Integer"
+        },
+        "valorParcela": {
+          "type": "cds.String"
+        },
+        "qtdParcela": {
+          "type": "cds.Integer"
+        },
+        "conta": {
+          "type": "cds.Integer"
+        },
+        "eParcelado": {
+          "type": "cds.Integer"
+        },
+        "CNPJ": {
+          "type": "cds.String"
+        },
+        "noPagamento": {
+          "type": "cds.Integer"
+        },
+        "agencia": {
+          "type": "cds.Integer"
+        },
+        "digito": {
+          "type": "cds.Integer"
+        },
+        "valorPagamento": {
+          "type": "cds.String"
+        }
+      },
+      "kind": "type"
+    },
+    "Challenge.SAP.API_types.ConfirmaPagtoReq": {
+      "@title": "Confirma Pagto Request",
+      "elements": {
+        "lotes": {
+          "@description": "Lotes de pagamento",
+          "items": {
+            "type": "Challenge.SAP.API_types.ConfirmaPagtoReqLote"
+          }
+        }
+      },
+      "kind": "type"
+    },
+    "Challenge.SAP.API_types.ConfirmaPagtoRes": {
+      "@title": "Successful response",
+      "elements": {
+        "status": {
+          "type": "cds.Integer"
+        },
+        "lotes": {
+          "@description": "Lotes de pagamento",
+          "items": {
+            "type": "Challenge.SAP.API_types.ConfirmaPagtoResLote"
+          }
+        }
+      },
+      "kind": "type"
+    },
+    "Challenge.SAP.API_types.ConfirmaPagtoReqLote": {
+      "@title": "Lote",
+      "elements": {
+        "noLote": {
+          "type": "cds.Integer"
+        },
+        "noPagamento": {
+          "type": "cds.Integer"
+        },
+        "valorPagamento": {
+          "type": "cds.String"
+        },
+        "status": {
+          "type": "cds.Integer"
+        }
+      },
+      "kind": "type"
+    },
+    "Challenge.SAP.API_types.ConfirmaPagtoResLote": {
+      "@title": "Lote",
+      "elements": {
+        "noLote": {
+          "type": "cds.Integer"
+        },
+        "noPagamento": {
+          "type": "cds.Integer"
+        },
+        "status": {
+          "type": "cds.Integer"
+        }
+      },
+      "kind": "type"
+    }
+  },
+  "meta": {
+    "creator": "cds-import-openapi"
+  }
+}

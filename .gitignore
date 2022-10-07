@@ -31,3 +31,5 @@ mta_archives/
 dist/
 resources/
 app/*/package-lock.json
+
+.env
